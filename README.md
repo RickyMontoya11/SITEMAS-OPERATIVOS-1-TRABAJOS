@@ -1,6 +1,8 @@
 # SITEMAS-OPERATIVOS-1-INDICE
 trabajos de clases 
 
+********************************************************************************************************************************
+
 # Sistemas Operativos 1, Unidad 3 Administracion de la memoria
 ## Definiciones
 
