@@ -104,3 +104,27 @@ Un segmento:
 * La tabla de página es una Estructura de datos usada por el sistema de memoria virtual, en un sistema operativo para almacenar la relación entre una dirección virtual en la memoria y la direcciones físicas.
 
 
+# Sistemas Operativos 1, Unidad 4 Administracion de Entrada/Salida 
+
+**Asignación con índices (indexada)**
+* En este esquema se guarda en el directorio un bloque de índices para cada archivo, con apuntadores hacia todos sus bloques constituyentes, de manera que el acceso directo se agiliza notablemente, a cambio de sacrificar varios bloques para almacenar dichos apuntadores. Cuando se quiere leer un archivo o cualquiera de sus partes, se hacen dos accesos: uno al bloque de índices y otro a la dirección deseada. Este es un esquema excelente para archivos grandes pero no para pequeños, porque la relación entre bloques destinados para índices respecto a los asignados para datos es incosteable.
+
+**Asignación contigua**
+* Cada directorio contiene la los nombres de archivos y la dirección del bloque inicial de cada archivo, así como el tamaño total de los mismos.
+
+**Asignación encadenada**
+* Con este criterio los directorios contienen los nombres de archivos y por cada uno de ellos la dirección del bloque inicial que compone al archivo. Cuando un archivo es leído, el brazo va a esa dirección inicial y encuentra los datos iniciales junto con la dirección del siguiente bloque y así sucesivamente. Con este criterio no es necesario que los bloques estén contiguos y no existe la fragmentación externa, pero en cada "eslabón" de la cadena se desperdicia espacio con las direcciones mismas. En otras palabras, lo que se crea en el disco es una lista ligada.
+
+**Base de Datos**
+* Base de Datos: es un conjunto de información relacionada que se encuentra agrupada o estructurada. Un archivo por sí mismo no constituye una base de datos, sino más bien la forma en que está organizada la información es la que da origen a la base de datos.
+Base de Datos: colección de datos organizada para dar servicio a muchas aplicaciones al mismo tiempo al combinar los datos de manera que aparezcan estar en una sola ubicación
+
+**Bloque**
+* En los dispositivos de almacenamiento secundario (discos duros, por ejemplo), la información se agrupa en bloques. Cada archivo está compuesto por 1 o varios bloques, y a su vez cada bloque está ubicado en un número de sectores.
+La elección del tamaño del bloque es importante, ya que los bloques siempre se asignan completos, por lo que la parte sobrante no se puede utilizar.
+
+**Campo**
+* 
+
+**Campo clave**
+* 
