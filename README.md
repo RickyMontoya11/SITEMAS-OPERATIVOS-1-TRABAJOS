@@ -105,10 +105,12 @@ Un segmento:
 **TABLA DE PAGINAS**
 * La tabla de página es una Estructura de datos usada por el sistema de memoria virtual, en un sistema operativo para almacenar la relación entre una dirección virtual en la memoria y la direcciones físicas.
 
+********************************************************************************************************************************
 
 # Sistemas Operativos 1, Unidad 4 Administracion de Entrada/Salida 
 
 **Asignación de fichero**
+* Es la estructura lógica de cada registro por la cual se acceden a ellos, esto significa que su almacenamiento secundario  depende de la agrupación y la asignación de cada uno de los archivos.  En la organización de estos archivos hay varias reglas importantes como: acceso rápido para recuperar la información de este, fácil de actualizar el archivo, economía de almacenamiento, mantenimiento simple, confianza para asegurar los datos.
 
 **Asignación con índices (indexada)**
 * En este esquema se guarda en el directorio un bloque de índices para cada archivo, con apuntadores hacia todos sus bloques constituyentes, de manera que el acceso directo se agiliza notablemente, a cambio de sacrificar varios bloques para almacenar dichos apuntadores. Cuando se quiere leer un archivo o cualquiera de sus partes, se hacen dos accesos: uno al bloque de índices y otro a la dirección deseada. Este es un esquema excelente para archivos grandes pero no para pequeños, porque la relación entre bloques destinados para índices respecto a los asignados para datos es incosteable.
