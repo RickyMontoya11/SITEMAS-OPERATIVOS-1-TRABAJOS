@@ -106,6 +106,8 @@ Un segmento:
 
 # Sistemas Operativos 1, Unidad 4 Administracion de Entrada/Salida 
 
+**Asignación de fichero**
+
 **Asignación con índices (indexada)**
 * En este esquema se guarda en el directorio un bloque de índices para cada archivo, con apuntadores hacia todos sus bloques constituyentes, de manera que el acceso directo se agiliza notablemente, a cambio de sacrificar varios bloques para almacenar dichos apuntadores. Cuando se quiere leer un archivo o cualquiera de sus partes, se hacen dos accesos: uno al bloque de índices y otro a la dirección deseada. Este es un esquema excelente para archivos grandes pero no para pequeños, porque la relación entre bloques destinados para índices respecto a los asignados para datos es incosteable.
 
@@ -124,7 +126,72 @@ Base de Datos: colección de datos organizada para dar servicio a muchas aplicac
 La elección del tamaño del bloque es importante, ya que los bloques siempre se asignan completos, por lo que la parte sobrante no se puede utilizar.
 
 **Campo**
-* 
+
 
 **Campo clave**
-* 
+
+
+**Directorio**
+*  El directorio contiene información sobre los archivos, incluyendo atributos, ubicación y propietario. El directorio es propiamente un archivo poseído por el sistema operativo y accesible a través de diversas rutinas de gestión de archivos. Aunque parte de la información de los directorios está disponible para los usuarios y aplicaciones, ésta la proporcionan, generalmente de un modo indirecto, las rutinas del sistema.
+
+**Directorio actual**
+* El directorio actual es el primer directorio en el que el sistema operativo busca los programas y archivos y almacena los archivos temporales y la salida. Cuando se solicita una operación sobre un objeto, como por ejemplo un archivo, el sistema busca el objeto en el directorio actual a menos que se especifique una vía de acceso de directorio distinta. 
+
+**Fichero**
+* Un archivo es una colección de información relacionada con nombre que se guarda en almacenamiento secundario.
+
+**Fichero de acceso directo o hash**
+* Aprovecha la capacidad de los discos para entrar a cualquier bloque de dirección que se va a utilizar y eso requiere de un campo clave para cada registro como los métodos anteriores. A diferencia que su ordenamiento no es secuencial.
+
+**Fichero indexado**
+* Posee varias características que el archivo secuencial ya que se organizan en campos. Este método supera las desventajas del otro método. Este tiene un índice del archivo que permite llegar rápidamente a un registro deseado, esto se le llama archivo de desbordamiento, y se ejecuta a través de la dirección de punteros donde están ubicados en los registros deseados.
+
+**Fichero secuencial**
+* Los registros se almacenan por posición, cada registro tiene el mismo tamaño y el mismo número de campos. El primero de cada registro de un campo se lee como campo clave, para leer un archivo el sistema comienza al principio del archivo y lee un registro a la vez hasta llegar al registro deseado. 
+
+**Fichero secuencial indexado**
+* Los registros se organizan en una secuencia basada en un campo clave presentando dos características, un índice del archivo para soportar los accesos aleatorios y un archivo de desbordamiento. El índice proporciona una capacidad de búsqueda para llagar rápidamente al registro deseado y el archivo de desbordamiento es similar al archivo de registros usado en un archivo secuencial, pero está integrado de forma que los archivos de desbordamiento se ubiquen siguiendo un puntero desde su registro predecesor. 
+
+**Métodos de acceso**
+* Para poder utilizar la información almacenada en un archivo, las aplicaciones deben acceder a la misma y almacenarla en memoria. Hay distintas formas de acceder a un archivo. Para una aplicación, elegir adecuadamente la forma de acceder a un archivo suele ser un aspecto importante de diseño, ya que, en muchos casos, el método de acceso tiene un impacto significativo en el rendimiento de la misma.
+
+Dependiendo de que se pueda saltar de una posición a otra de un archivo, se distinguen dos métodos de acceso principales: acceso secuencial y acceso directo.
+
+Cuando se usa el método de acceso secuencial, lo único que se puede hacer es leer los bytes del archivo en orden, empezando por el principio. No puede saltar de una posición del archivo a otra o leerlo desordenado. Si se quiere volver atrás, hay que volver al principio y releer todo el archivo hasta el punto deseado. Las operaciones más comunes son lecturas y escrituras.
+
+Con la llegada de los dispositivos de acceso directo (como los discos magnéticos), surgió la forma de acceso directo, o aleatorio, a un archivo. El archivo se considera como un conjunto de registros, cada uno de los cuales puede ser un byte. Se puede acceder al mismo desordenadamente moviendo el apuntador de acceso al archivo a uno u otro registro. Esta forma de acceso se basa en un modelo de archivo almacenado en disco, ya que se asume que el dispositivo se puede mover aleatoriamente entre los distintos bloques que componen el archivo.
+
+**Nodo-i**
+* Un archivo posee varios componentes: un nombre, contenido e información administración como permiso y fechas de modificación. La información administrativa esta almacenada en el “ nodo-i ”( en ingles muchas veces se usa inodo ( sin guión) en vez de i-nodo), junto con datos esenciales para el sistema tales como su longitud, la región del disco en la que se encuentra almacenado el contenido del archivo y otros elementos.
+
+Existen tres fechas en un i-nodo: la fecha en la que se hizo la ultima modificación ( escrita ) al contenido del archivo, la fecha en la que dicho contenido fue usado ( leído o ejecutado ) por ultima vez y la fecha en la que el i-nodo fue alterado por ultima vez, por ejemplo, para definir los permisos.
+
+**Nombre de fichero**
+* Las reglas exactas para los nombres de archivos varían de sistema a sistema.
+Algunos sistemas de archivos distinguen entre las letras mayúsculas y minúsculas, mientras que otros no.
+
+Muchos S. O. utilizan nombres de archivo con dos partes, separadas por un punto:
+La parte posterior al punto es la extensión de archivo y generalmente indica algo relativo al archivo, aunque las extensiones suelen ser meras convenciones.
+
+**Pila**
+* la mayoría del trabajo no se hace accediendo directamente a los objetos sino a los registros y a una útil herramienta llamada stack, como su nombre lo indica el stack es una pila (una lista apilada) donde los elementos se colocan uno sobre otro y solo es accesible de manera inmediata el elemento que esta en la cima de la pila.
+
+**Registro**
+* El registro del sistema es una base de datos la cual los SO usan para almacenar información sobre la configuración del equipo.
+
+**Ruta del nombre**
+* Cuando  el  sistema  de  archivos  está  organizado como  un  árbol  de  directorios  se  necesita  una forma de determinar los nombres de los archivos.  Los principales métodos para nombres de los archivos son:
+
+ * Ruta de Acceso Absoluta
+ * Ruta de Acceso Relativa
+
+**Sistema de Gestión de Archivos**
+* Es aquel conjunto de software del sistema que ofrece a los usuarios y aplicaciones, servicios relativos al empleo de archivos.
+La única forma en que un usuario o aplicación puede acceder a los archivos es mediante el Sistema de Gestión de Archivos (File System).
+Esto releva al usuario o programador de la necesidad de desarrollar software de propósito específico para cada aplicación y proporciona al sistema un medio de controlar su ventaja más importante.
+
+**Tabla de asignación de disco**
+* en cada uno de los cuales seguardan tantos números de bloques de disco como quepan. Con bloques de 1Kb y direcciones de 32bits, cada bloque de la  lista  librecontendrá  los  números  de  255  bloques  libres  (se  necesita  una  ranura  para  el  apuntador  al  siguiente  bloque).  
+
+**Tabla de bits**
+*  Un  disco  con  n  bloques  requiere  un  mapa  de  bits  con n  bits.  Los  bloqueslibres se marcan con 1 en el mapa y los libres con 0. El mapa de bits requiere menos espacio, puesto que usa un bit por bloque, en comparación con los 32 bits si se usa el modelo de lista enlazada. La elección depende de la cantidad de memoria principal para albergarla lista o el mapa de bits.
