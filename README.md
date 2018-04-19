@@ -1,8 +1,8 @@
 # SITEMAS-OPERATIVOS-1-INDICE
 trabajos de clases 
 
-## SITEMAS OPERATIVOS UNIDAD 3 
-# DEFINICIONES 
+# Sistemas Operativos 1, Unidad 3 Administracion de la memoria
+## Definiciones
 
 **CARGA**
 * El cargador sitúa él módulo de carga en la memoria principal, comenzando en la posición X. En general, se pueden aplicar tres métodos.
